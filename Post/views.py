@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse
 
 
 def Index(request):
-    return HttpResponse("POST ANA SAYFA")
+    return render(request,"home/index.html")
 
 def createPost(request):
     pass

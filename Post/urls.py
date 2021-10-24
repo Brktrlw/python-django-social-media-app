@@ -1,9 +1,11 @@
 from django.urls import path
-import Post.views
 from .views import createPost,Index,updatePost
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('',Index),
     path('create/',createPost),
     path('update/<int:postId>', updatePost),
 ]
+
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

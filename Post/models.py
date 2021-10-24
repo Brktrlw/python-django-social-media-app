@@ -7,6 +7,13 @@ class Post(models.Model):
     postDate    =models.DateTimeField(auto_now_add=True,verbose_name="Oluşturulma Tarihi",auto_now=False)
     articleImage=models.FileField(blank=True,null=True)
 
+    class Meta:
+        verbose_name_plural="Gönderiler"
+        ordering=["id"]
+
+    def __str__(self):
+        return self.postTitle
+
 
 
 

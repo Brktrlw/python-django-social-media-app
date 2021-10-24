@@ -1,5 +1,5 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render
 
 def homePage(request):                              # Ana sayfanın açılmasını sağlayan method
-    return HttpResponse("ANA SYFA")
+    return render(request,"home/index.html")
 
