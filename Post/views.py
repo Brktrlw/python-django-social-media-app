@@ -1,5 +1,11 @@
 from django.shortcuts import render,HttpResponse
 
-def homePage(request):         # Ana sayfanın açılmasını sağlayan method
-    return HttpResponse("naber")
 
+def Index(request):
+    return HttpResponse("POST ANA SAYFA")
+
+def createPost(request):
+    pass
+
+def updatePost(request):
+    pass
