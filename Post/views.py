@@ -7,5 +7,5 @@ def Index(request):
 def createPost(request):
     pass
 
-def updatePost(request):
-    pass
+def updatePost(request,postId):
+    return HttpResponse(postId)
