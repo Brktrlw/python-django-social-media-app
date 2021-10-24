@@ -1,33 +1,105 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><i class="fas fa-home"></i> Jangostram</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
+   <div class="container-fluid">
+      <a class="navbar-brand" href="/">Jangostram</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+               <a class="btn btn-outline-primary" aria-current="page" href="/"><i class="fa fa-home" aria-hidden="true"></i> Ana Sayfa</a>
+            </li>
+            &nbsp;
+            <li class="nav-item">
+               <a class="btn btn-outline-warning" href=" "><i class="fas fa-stream"></i> Hakkımızda</a>
+            </li>
+            &nbsp;
+            <li class="nav-item">
+               <a class="btn btn-outline-info" href="/articles/article-categorie/"><i class="fas fa-clipboard-list"></i> Makaleler</a>
+            </li>&nbsp;
+
+
+         </ul>
+         {% if request.user.is_authenticated %}
+         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#openAddArticle"><i class="fas fa-pencil-alt"></i> Makale Yaz</button>&nbsp;
+         <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i> Hesabım
+            </button>
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
+               <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog" style="color:#313538"></i> Ayarlar</a></li>
+               <li><a class="dropdown-item" href="/articles/dashboard/"><i class="fas fa-clipboard-list" style="color:#149911"></i> Makalelerim</a></li>
+               <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt" style="color:red"></i> Çıkış Yap</button></li>
+            </ul>
+
+         </div>
+
+
+
+
+         {% else %}
+         <a class="btn btn-outline-success" href="/user/login"><i class="fas fa-sign-in-alt"></i> Giriş Yap</a>&nbsp;
+         <a class="btn btn-outline-primary" href="/user/register"></i><i class="fas fa-user-plus"></i> Kayıt Ol</a>
+         {% endif %}
+      </div>
+   </div>
 </nav>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Çıkış Yap</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            Çıkış Yapmak İstediğinize Emin Misiniz?
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Kapat</button>
+            <a href="/user/logout"><button type="button" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</button></a>
+         </div>
+      </div>
+   </div>
+</div>
+<form method="post" action="/articles/addArticle/" enctype="multipart/form-data">
+   {% csrf_token %}
+   <div class="modal fade" id="openAddArticle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <img src="https://cdn-icons.flaticon.com/png/512/3079/premium/3079967.png?token=exp=1634665909~hmac=be834a8d3f3360d3dc3b79b5b1e4f849" width="100" alt="">
+               <h5 class="modal-title"> Yeni Makale Oluştur</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="mb-3">
+                  <label class="col-form-label">Makale Başlığı:</label>
+                  <input type="text" class="form-control" name="title" id="id_title" required>
+               </div>
+               <div class="mb-3">
+                  <label class="col-form-label">Makale Açıklaması:</label>
+                  <textarea class="form-control" name="content" id="id_content" required></textarea>
+                  <br>
+                  <select class="form-control" name="Atype" id="id_Atype">
+                     <option selected>Makale Türü</option>
+                     <option value="1">Film</option>
+                     <option value="2">Müzik</option>
+                     <option value="3">Oyun</option>
+                     <option value="4">Kitap</option>
+                     <option value="5">Sağlık</option>
+                     <option value="6">Bilişim</option>
+                  </select>
+               </div>
+               <div class="mb-3">
+                  <input class="form-control" type="file" name="articleImage" id="id_articleImage">
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-times"></i> Kapat</button>
+               <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Makale Oluştur</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</form>
