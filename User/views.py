@@ -26,9 +26,13 @@ def userLogin(request):
     return render(request, "home/login.html",{"form":form})
 
 def userRegister(request):
-    form = RegisterForm(request.POST)
-    if form.is_valid():
-        return render(request,"home/register.html",{"form":form})
-    return render(request, "home/register.html", {"form": form})
+    form = RegisterForm(request.POST or None)
+    if request.method=="POST":
+        if form.is_valid():
+            return render(request,"home/register.html",{"form":form})
+        else:
+            return render(request, "home/register.html", {"form": form})
+    else:
+        return render(request, "home/register.html", {"form": form})
 
 
