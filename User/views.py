@@ -26,26 +26,9 @@ def userLogin(request):
     return render(request, "home/login.html",{"form":form})
 
 def userRegister(request):
-    form=RegisterForm(request.POST or None)
-    if request.method=="POST":
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            email = form.cleaned_data.get("email")
-            password = form.cleaned_data.get("password")
-            confirm  =form.cleaned_data.get("confirm")
-            if password !=confirm:
-                messages.warning(request,"Parolalar eşleşmiyor")
-                return render(request,"home/register.html",{"form":form})
-            newUser=User(username=username,email=email)
-            newUser.set_password(password)
-            newUser.save()
-            messages.success(request,"Başarıyla kayıt olundu")
-            login(request,newUser)
-            return redirect("index")
-        else:
-            messages.warning(request,"Bir sorun olustu")
-            return redirect("index")
-    else:
-        return render(request, "home/register.html", {"form": form})
+    form = RegisterForm(request.POST)
+    if form.is_valid():
+        return render(request,"home/register.html",{"form":form})
+    return render(request, "home/register.html", {"form": form})
 
 

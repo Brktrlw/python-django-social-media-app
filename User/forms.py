@@ -1,5 +1,6 @@
 from django import forms
-from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+
 
 class LoginForm(forms.Form):
     username    =forms.CharField(max_length=50,label="Kullanıcı Adı",required=True,widget=forms.TextInput(attrs={'placeholder': 'Kullanıcı adınızı giriniz'}))
@@ -18,18 +19,15 @@ class RegisterForm(forms.Form):
 
 
     def clean(self):
-        username = self.cleaned_data.get("username")
         email = self.cleaned_data.get("email")
-        password = self.cleaned_data.get("password")
-        confirm = self.cleaned_data.get("confirm")
-        if password and confirm and password != confirm:
-            raise ValidationError("Parolalar eşleşmiyor.")
-        values = {
-            "username": username,
-            "email": email,
-            "password": password
-        }
-        return values
+        try:
+            match = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return email
+        raise forms.ValidationError('Bu email adresi daha önce alınmış')
+
+
+
 
 
 
