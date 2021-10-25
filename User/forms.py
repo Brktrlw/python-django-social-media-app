@@ -17,6 +17,11 @@ class RegisterForm(forms.Form):
     confirm = forms.CharField(max_length=50, label="Parolayı Doğrula", required=True,widget=forms.PasswordInput(attrs={"placeholder":"Parolanınızı tekrar giriniz","class":"form-control form-control-lg"}))
     accept  =forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"form-check-input me-2"}),label="Kullanım koşullarını okudum ve kabul ediyorum")
 
+    def clean_confirm(self):
+        password=self.cleaned_data.get("password")
+        confirm = self.cleaned_data.get("confirm")
+        if password and confirm and password!=confirm:
+            raise forms.ValidationError("Parolalar eşleşmiyor")
     def clean_username(self):
         username = self.cleaned_data.get("username")
         try:

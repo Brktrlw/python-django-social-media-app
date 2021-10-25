@@ -29,7 +29,15 @@ def userRegister(request):
     form = RegisterForm(request.POST or None)
     if request.method=="POST":
         if form.is_valid():
-            return render(request,"home/register.html",{"form":form})
+            username = form.cleaned_data.get("username")
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
+            newUser = User(username=username, email=email)
+            newUser.set_password(password)
+            newUser.save()
+            login(request,newUser)
+            messages.success(request,"Başarıyla kayıt olundu")
+            return redirect("index")
         else:
             return render(request, "home/register.html", {"form": form})
     else:
