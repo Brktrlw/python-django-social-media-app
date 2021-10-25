@@ -20,17 +20,26 @@
 
               <form method="post">
                 {% csrf_token %}
-                {% for field in form %}
-
                 <div class="form-outline mb-4">
-                  <label class="form-label">{{field.label}}</label>
-                                  {{field}}
+                  <label class="form-label">{{form.username.label}}</label>
+                                  {{form.username}}
                 </div>
-                {% endfor %}
+                <div class="form-outline mb-4">
+                  <label class="form-label">{{form.email.label}}</label>
+                                  {{form.email}}
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label">{{form.password.label}}</label>
+                                  {{form.password}}
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label">{{form.confirm.label}}</label>
+                                  {{form.confirm}}
+                </div>
                 <div class="form-check d-flex justify-content-center mb-5">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg"/>
+                  {{form.accept}}
                   <label class="form-check-label">
-                    I agree all statements in <a href="#!" class="text-body"><u class="text-white">Terms of service</u></a>
+                    <a href="#!" class="text-body"><u class="text-white">Kullanım koşullarını </u></a>okudum ve kabul ediyorum.
                   </label>
                 </div>
 
