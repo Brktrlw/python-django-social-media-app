@@ -28,7 +28,7 @@
             <i class="fas fa-user"></i> Hesabım
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
-               <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog" style="color:#313538"></i> Ayarlar</a></li>
+               <li><a class="dropdown-item" href=""><i class="fas fa-user-cog" style="color:#313538"></i> Ayarlar</a></li>
                <li><a class="dropdown-item" href="/articles/dashboard/"><i class="fas fa-clipboard-list" style="color:#149911"></i> Makalelerim</a></li>
                <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt" style="color:red"></i> Çıkış Yap</button></li>
             </ul>
@@ -57,7 +57,7 @@
       </div>
    </div>
 </div>
-<form method="post" action="/articles/addArticle/" enctype="multipart/form-data">
+<form method="post" action="/post/create/" enctype="multipart/form-data">
    {% csrf_token %}
    <div class="modal fade" id="openAddArticle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
