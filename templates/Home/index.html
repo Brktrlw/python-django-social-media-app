@@ -8,7 +8,7 @@
 
 {% if messages %}
     {% for message in messages %}
-    <div{% if message.tags %} class="alert alert-{{ message.tags }} m-3 p-3 rounded"{% endif %}>{{ message }}</div>
+    <div{% if message.tags %} class="alert alert-{{ message.tags }} m-3 p-3 rounded"{% endif %}><i class="fas fa-check-circle"></i> {{ message }}</div>
     {% endfor %}
 {% endif %}
 

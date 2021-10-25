@@ -1,0 +1,68 @@
+{% extends 'home/layout.html' %}
+
+{% block body%}
+{% include 'home/navbar.html' %}
+<section class="vh-100 bg-image" style="background-image: url('https://images6.alphacoders.com/994/994203.jpg');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      {% if messages %}
+    {% for message in messages %}
+    <div{% if message.tags %} class="alert alert-{{ message.tags }} m-3 p-3 rounded"{% endif %}>{{ message }}</div>
+    {% endfor %}
+{% endif %}
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card bg-dark text-white" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Hesap Oluştur</h2>
+
+              <form method="post">
+                {% csrf_token %}
+                <div class="form-outline mb-4">
+                  <input type="text" name="username" id="id_username" class="form-control form-control-lg" />
+                  <label class="form-label">Kullanıcı Adınız</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="id_mail" name="mail" class="form-control form-control-lg" />
+                  <label class="form-label">Mail Adresiniz</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="id_password" maxlength="50" name="password" class="form-control form-control-lg" />
+                  <label class="form-label">Parola</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" name="confirm" maxlength="50" id="id_confirm" class="form-control form-control-lg" />
+                  <label class="form-label">Parola Tekrarı</label>
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3cg"
+                  />
+                  <label class="form-check-label">
+                    I agree all statements in <a href="#!" class="text-body"><u class="text-white">Terms of service</u></a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"><i class="fas fa-check"></i> Kayıt Ol </button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Zaten hesabın var mı, <a href="" class="fw-bold text-body"><u class="text-white">Giriş Yap</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
