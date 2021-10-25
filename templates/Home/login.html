@@ -17,14 +17,12 @@
                      <p class="text-white-50 mb-5">İşlem yapabilmek için lütfen giriş yapınız.</p>
                      <form method="post">
                        {% csrf_token %}
-                        <div class="form-outline form-white mb-4">
-                           <input type="text" id="id_username" name="username" class="form-control form-control-lg" />
-                           <label class="form-label">Kullanıcı Adı</label>
+                         {% for field in form%}
+                            <div class="form-outline form-white mb-4">
+                           <label class="form-label">{{field.label}}</label>
+                                {{field}}
                         </div>
-                        <div class="form-outline form-white mb-4">
-                           <input type="password" id="id_password" name="password" class="form-control form-control-lg" />
-                           <label class="form-label">Parola</label>
-                        </div>
+                         {% endfor%}
                         <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="">Şifreni mi unuttun?</a></p>
                         <button class="btn btn-outline-light btn-lg px-5" type="submit"><i class="fas fa-sign-in-alt"></i> Giriş Yap</button>
                   </div>
@@ -38,4 +36,5 @@
       </div>
    </div>
 </section>
+
 {% endblock %}

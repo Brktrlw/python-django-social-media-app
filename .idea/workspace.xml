@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8f80f132-2571-442e-8a35-0befeb3ee396" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jangostram/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jangostram/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jangostram/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jangostram/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/User/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Home/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,13 +16,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1zww3RbUY8P2Ix8QPoYwGvwHELW" />
   <component name="ProjectLevelVcsManager">
@@ -66,5 +73,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

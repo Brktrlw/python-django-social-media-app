@@ -18,33 +18,15 @@
 
               <form method="post">
                 {% csrf_token %}
-                <div class="form-outline mb-4">
-                  <input type="text" name="username" id="id_username" class="form-control form-control-lg" />
-                  <label class="form-label">Kullanıcı Adınız</label>
-                </div>
+                {% for field in form %}
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="id_mail" name="mail" class="form-control form-control-lg" />
-                  <label class="form-label">Mail Adresiniz</label>
+                  <label class="form-label">{{field.label}}</label>
+                                  {{field}}
                 </div>
-
-                <div class="form-outline mb-4">
-                  <input type="password" id="id_password" maxlength="50" name="password" class="form-control form-control-lg" />
-                  <label class="form-label">Parola</label>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="password" name="confirm" maxlength="50" id="id_confirm" class="form-control form-control-lg" />
-                  <label class="form-label">Parola Tekrarı</label>
-                </div>
-
+                {% endfor %}
                 <div class="form-check d-flex justify-content-center mb-5">
-                  <input
-                    class="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="form2Example3cg"
-                  />
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg"/>
                   <label class="form-check-label">
                     I agree all statements in <a href="#!" class="text-body"><u class="text-white">Terms of service</u></a>
                   </label>
