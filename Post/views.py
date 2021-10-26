@@ -1,6 +1,6 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,redirect
 from .forms import PostForm
-from .models import Post
+
 def Index(request):
     return render(request,"home/index.html")
 
@@ -11,7 +11,9 @@ def createPost(request):
             newPost=form.save(commit=False)
             newPost.postAuthor=request.user
             newPost.save()
-    return render(request,"home/index.html",{"form":form})
+    else:
+        return redirect("index")
+    return render(request,"home/index.html")
 
 def updatePost(request,postId):
-    return HttpResponse(postId)
+    return
