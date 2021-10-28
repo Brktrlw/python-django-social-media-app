@@ -43,4 +43,5 @@ def userRegister(request):
     else:
         return render(request, "home/register.html", {"form": form})
 
-
+def userProfile(request):
+    return render(request,"home/profile.html")
