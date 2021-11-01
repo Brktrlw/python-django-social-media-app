@@ -6,5 +6,5 @@ urlpatterns = [
     path('login/',userLogin,name="userLogin"),
     path('register/',userRegister,name="userRegister"),
     path('profile/',userProfile,name="userProfile"),
-    path('<string:userNickName>',userProfilePage,name="userProfilePage")
+    path('profile/<str:userNickName>',userProfilePage,name="userProfilePage")
 ]

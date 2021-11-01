@@ -9,9 +9,11 @@
 
 {% block body%}
 {% include 'home/navbar.html' %}
-
-
-
+{% if messages %}
+    {% for message in messages %}
+    <div{% if message.tags %} class="alert alert-{{ message.tags }} m-3 p-3 rounded"{% endif %}><i class="fas fa-check-circle"></i> {{ message }}</div>
+    {% endfor %}
+{% endif %}
         <section class="hero">
 			{% for post in posts %}
          <div class="container">
@@ -63,7 +65,7 @@
 			 </div><!--/ cardbox-base -->
 			 <div class="cardbox-comments">
 			  <span class="comment-avatar float-left">
-			   <a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>
+			   <a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="" width="40px"></a>
 			  </span>
 			  <div class="search">
 			   <input placeholder="Yorum yap..." type="text">

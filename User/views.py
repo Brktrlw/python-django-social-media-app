@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm,RegisterForm
 from django.contrib.auth.models import User
-
+import Post as post
 def userLogout(request):           # Çıkış Yapıp Anasayfaya döndürdüğümüz method
     logout(request)
     messages.success(request,"Başarıyla çıkış yapıldı")
@@ -47,4 +47,7 @@ def userProfile(request):
     return render(request,"home/profile.html")
 
 def userProfilePage(request,userNickName):
-    return render(request,"home/profile.html")
+    user=User.objects.filter(username=userNickName).first()
+    posts=post.models.Post.objects.filter(postAuthor_id=request.user.id)
+    print(posts)
+    return render(request,"home/profile.html",{"user":user})

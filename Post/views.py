@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import PostForm
-
+from django.contrib import messages
 def Index(request):
     return render(request,"home/index.html")
 
@@ -14,6 +14,8 @@ def createPost(request):
             newPost=form.save(commit=False)
             newPost.postAuthor=request.user
             newPost.save()
+            messages.success(request,"Başarıyla paylaşıldı")
+            return redirect("index")
     else:
         return redirect("index")
     return render(request,"home/index.html")
