@@ -2,6 +2,7 @@
 {% load static %}
 {% block styles%}
 <link rel="stylesheet" href="{% static 'css/profileStyle.css'%}">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 {% endblock %}
 
 
@@ -14,7 +15,6 @@
     {% endfor %}
 {% endif %}
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
    <div class="row">
       <div class="col-md-12">
@@ -74,26 +74,23 @@
                            </div>
                            <!-- end timeline-icon -->
                            <!-- begin timeline-body -->
+
                            <div class="timeline-body">
+                              {%for post in posts%}
+                              <div class="shadow-lg p-3 mb-5 bg-white rounded">
                               <div class="timeline-header">
                                  <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
-                                 <span class="username"><a href="javascript:;">Sean Ngu</a> <small></small></span>
-                                 <span class="pull-right text-muted">18 Views</span>
+                                 <span class="username"><a href="javascript:;">{{post.postAuthor}}</a> <small></small></span>
+                                 <span class="pull-right text-muted">{{post.postDate}}</span>
                               </div>
                               <div class="timeline-content">
-                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-                                    Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                                 <p style="padding-left:10px;padding-top:10px"><b>{{post.postContent}}</b>
                                  </p>
                               </div>
                               <div class="timeline-likes">
-                                 <div class="stats-right">
-                                    <span class="stats-text">259 Shares</span>
-                                    <span class="stats-text">21 Comments</span>
-                                 </div>
                                  <div class="stats">
                                     <span class="fa-stack fa-fw stats-icon">
-                                    <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                                    <i class="fa fa-circle fa-stack-2x text-danger" style="text-decoration=none"></i>
                                     <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
                                     </span>
                                     <span class="fa-stack fa-fw stats-icon">
@@ -104,11 +101,11 @@
                                  </div>
                               </div>
                               <div class="timeline-footer">
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter" style="text-decoration:none"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3" style="color:red"></i> Like</a>
+                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter" style="text-decoration:none"><i class="fa fa-comments fa-fw fa-lg m-r-3" style="color:#5497FE"></i> Comment</a>
+                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter" style="text-decoration:none"><i class="fa fa-share fa-fw fa-lg m-r-3" style="color:#F7A40A"></i> Share</a>
                               </div>
-                              <div class="timeline-comment-box">
+                              <div class="timeline-comment-box" style="margin-right:0px;margin-left:0px;margin-top:10px">
                                  <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
                                  <div class="input">
                                     <form action="">
@@ -121,120 +118,10 @@
                                     </form>
                                  </div>
                               </div>
-                           </div>
+                           </div>{% endfor %}
+</div>
                            <!-- end timeline-body -->
-                        </li>
-                        <li>
-                           <!-- begin timeline-time -->
-                           <div class="timeline-time">
-                              <span class="date">yesterday</span>
-                              <span class="time">20:17</span>
-                           </div>
-                           <!-- end timeline-time -->
-                           <!-- begin timeline-icon -->
-                           <div class="timeline-icon">
-                              <a href="javascript:;">&nbsp;</a>
-                           </div>
-                           <!-- end timeline-icon -->
-                           <!-- begin timeline-body -->
-                           <div class="timeline-body">
-                              <div class="timeline-header">
-                                 <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
-                                 <span class="username">Sean Ngu</span>
-                                 <span class="pull-right text-muted">82 Views</span>
-                              </div>
-                              <div class="timeline-content">
-                                 <p>Location: United States</p>
-                              </div>
-                              <div class="timeline-footer">
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
-                              </div>
-                           </div>
-                           <!-- end timeline-body -->
-                        </li>
-                        <li>
-                           <!-- begin timeline-time -->
-                           <div class="timeline-time">
-                              <span class="date">24 February 2014</span>
-                              <span class="time">08:17</span>
-                           </div>
-                           <!-- end timeline-time -->
-                           <!-- begin timeline-icon -->
-                           <div class="timeline-icon">
-                              <a href="javascript:;">&nbsp;</a>
-                           </div>
-                           <!-- end timeline-icon -->
-                           <!-- begin timeline-body -->
-                           <div class="timeline-body">
-                              <div class="timeline-header">
-                                 <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
-                                 <span class="username">Sean Ngu</span>
-                                 <span class="pull-right text-muted">1,282 Views</span>
-                              </div>
-                              <div class="timeline-content">
-                                 <p class="lead">
-                                    <i class="fa fa-quote-left fa-fw pull-left"></i>
-                                    Quisque sed varius nisl. Nulla facilisi. Phasellus consequat sapien sit amet nibh molestie placerat. Donec nulla quam, ullamcorper ut velit vitae, lobortis condimentum magna. Suspendisse mollis in sem vel mollis.
-                                    <i class="fa fa-quote-right fa-fw pull-right"></i>
-                                 </p>
-                              </div>
-                              <div class="timeline-footer">
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
-                              </div>
-                           </div>
-                           <!-- end timeline-body -->
-                        </li>
-                        <li>
-                           <!-- begin timeline-time -->
-                           <div class="timeline-time">
-                              <span class="date">10 January 2014</span>
-                              <span class="time">20:43</span>
-                           </div>
-                           <!-- end timeline-time -->
-                           <!-- begin timeline-icon -->
-                           <div class="timeline-icon">
-                              <a href="javascript:;">&nbsp;</a>
-                           </div>
-                           <!-- end timeline-icon -->
-                           <!-- begin timeline-body -->
-                           <div class="timeline-body">
-                              <div class="timeline-header">
-                                 <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
-                                 <span class="username">Sean Ngu</span>
-                                 <span class="pull-right text-muted">1,021,282 Views</span>
-                              </div>
-                              <div class="timeline-content">
-                                 <h4 class="template-title">
-                                    <i class="fa fa-map-marker text-danger fa-fw"></i>
-                                    795 Folsom Ave, Suite 600 San Francisco, CA 94107
-                                 </h4>
-                                 <p>In hac habitasse platea dictumst. Pellentesque bibendum id sem nec faucibus. Maecenas molestie, augue vel accumsan rutrum, massa mi rutrum odio, id luctus mauris nibh ut leo.</p>
-                                 <p class="m-t-20">
-                                    <img src="../assets/img/gallery/gallery-5.jpg" alt="">
-                                 </p>
-                              </div>
-                              <div class="timeline-footer">
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
-                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
-                              </div>
-                           </div>
-                           <!-- end timeline-body -->
-                        </li>
-                        <li>
-                           <!-- begin timeline-icon -->
-                           <div class="timeline-icon">
-                              <a href="javascript:;">&nbsp;</a>
-                           </div>
-                           <!-- end timeline-icon -->
-                           <!-- begin timeline-body -->
-                           <div class="timeline-body">
-                              Loading...
-                           </div>
+
                            <!-- begin timeline-body -->
                         </li>
                      </ul>
