@@ -45,3 +45,6 @@ def userRegister(request):
 
 def userProfile(request):
     return render(request,"home/profile.html")
+
+def userProfilePage(request,userNickName):
+    return render(request,"home/profile.html")
