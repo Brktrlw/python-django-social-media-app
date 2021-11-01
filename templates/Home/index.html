@@ -13,19 +13,11 @@
     {% endfor %}
 {% endif %}
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-	    <!-- ==============================================
-	    Hero
-	    =============================================== -->
-{% for post in posts %}
-
-
         <section class="hero">
+			{% for post in posts %}
          <div class="container">
           <div class="row">
 
@@ -36,9 +28,7 @@
 			 <div class="cardbox-heading">
 			  <!-- START dropdown-->
 			  <div class="dropdown float-right">
-			   <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
-				<em class="fa fa-ellipsis-h"></em>
-			   </button>
+
 			   <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
 				<a class="dropdown-item" href="#">Hide post</a>
 				<a class="dropdown-item" href="#">Stop following</a>
@@ -50,9 +40,8 @@
 				<a href=""><img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User"></a>
 			   </div>
 			   <div class="media-body">
-			    <p class="m-0">{{post.author}}</p>
-				<small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
-				<small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small>
+			    <p class="m-0"><b>{{post.postAuthor}}</b></p>
+				<small><span><i class="far fa-clock"></i> {{post.postDate}}</span></small>
 			   </div>
 			  </div><!--/ media -->
 			 </div><!--/ cardbox-heading -->
@@ -73,7 +62,7 @@
 			   <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/1.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
 			   <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/5.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
 			   <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/2.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
-			   <li><a><span>242 Likes</span></a></li>
+				   <li><a><span>242 Likes</span></a></li>
 			  </ul>
 			 </div><!--/ cardbox-base -->
 			 <div class="cardbox-comments">
@@ -81,8 +70,8 @@
 			   <a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>
 			  </span>
 			  <div class="search">
-			   <input placeholder="Write a comment" type="text">
-			   <button><i class="fa fa-camera"></i></button>
+			   <input placeholder="Yorum yap" type="text">
+				  <button class="btn btn-primary">Gönder</button>
 			  </div><!--/. Search -->
 			 </div><!--/ cardbox-like -->
 
@@ -98,7 +87,9 @@
 
           </div><!--/ row -->
          </div><!--/ container -->
+			{% endfor%}
         </section>
 
-{% endfor%}
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock %}
