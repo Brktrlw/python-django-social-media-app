@@ -4,6 +4,9 @@ from .forms import PostForm
 def Index(request):
     return render(request,"home/index.html")
 
+def postDetail(request):
+    return render(request,"home/postDetail.html") # postDetail.html dosyasını oluştur
+
 def createPost(request):
     form=PostForm(request.POST or None)
     if request.method=="POST":

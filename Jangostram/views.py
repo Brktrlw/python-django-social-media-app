@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
-def homePage(request):                              # Ana sayfanın açılmasını sağlayan method
-    return render(request,"home/index.html")
+from Post import models
+def homePage(request):
+    posts=models.Post.objects.all()
+    return render(request,"home/index.html",{"posts":posts})
 
