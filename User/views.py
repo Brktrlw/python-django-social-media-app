@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm,RegisterForm
 from django.contrib.auth.models import User
 import Post as post
+
 def userLogout(request):           # Çıkış Yapıp Anasayfaya döndürdüğümüz method
     logout(request)
     messages.success(request,"Başarıyla çıkış yapıldı")

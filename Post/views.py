@@ -1,12 +1,17 @@
 from django.shortcuts import render,redirect
 from .forms import PostForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from User import urls
+
 def Index(request):
     return render(request,"home/index.html")
 
+@login_required(login_url="userLogin")
 def postDetail(request):
     return render(request,"home/postDetail.html") # postDetail.html dosyasını oluştur
 
+@login_required(login_url="userLogin")
 def createPost(request):
     form=PostForm(request.POST or None)
     if request.method=="POST":
