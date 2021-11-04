@@ -48,5 +48,7 @@ def userProfile(request):
 
 def userProfilePage(request,userNickName):
     user=User.objects.filter(username=userNickName).first()
+    if user==None:
+        return render(request,"home/404page.html")
     posts=post.models.Post.objects.filter(postAuthor_id=request.user.id).order_by('-postDate')
     return render(request,"home/profile.html",{"user":user,"posts":posts})
