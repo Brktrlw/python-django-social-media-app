@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 from .views import homePage
+from .views import berkayResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',homePage,name="index"),
     path('post/',include("Post.urls")),
-    path("user/",include("User.urls"))
+    path("user/",include("User.urls")),
+    path("berkay/",berkayResponse,name="berkayResponse"),
+
 ]

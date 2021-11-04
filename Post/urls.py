@@ -2,6 +2,7 @@ from django.urls import path
 from .views import createPost,Index,updatePost,postDetail
 from django.conf import settings
 from django.conf.urls.static import static
+
 urlpatterns = [
     path('',Index),
     path('create/',createPost),
