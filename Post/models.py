@@ -14,7 +14,10 @@ class Post(models.Model):
     def __str__(self):
         return self.postTitle
 
-
+class Comment(models.Model):
+    commentAuthor=models.ForeignKey("auth.user",on_delete=models.CASCADE)
+    commentContent=models.CharField(max_length=200,verbose_name="Yorum",blank=False)
+    commentDate=models.DateTimeField(auto_now_add=True,verbose_name="Tarih")
 
 
 
