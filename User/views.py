@@ -31,9 +31,9 @@ def userRegister(request):
     if request.method=="POST":
         if form.is_valid():
             username = form.cleaned_data.get("username")
-            email = form.cleaned_data.get("email")
+            email    = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
-            newUser = User(username=username, email=email)
+            newUser  = User(username=username, email=email)
             newUser.set_password(password)
             newUser.save()
             login(request,newUser)

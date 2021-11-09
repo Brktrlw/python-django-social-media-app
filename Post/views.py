@@ -13,7 +13,7 @@ def postDetail(request):
 @login_required(login_url="userLogin")
 def createPost(request):
     form=PostForm(request.POST or None)
-    if request.method=="POST":
+    if request.method == "POST":
         if form.is_valid():
             newPost=form.save(commit=False)
             newPost.postAuthor=request.user
