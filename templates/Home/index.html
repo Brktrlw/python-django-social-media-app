@@ -13,9 +13,10 @@
     {% for message in messages %}
     <div{% if message.tags %} class="alert alert-{{ message.tags }} m-3 p-3 rounded"{% endif %}><i class="fas fa-check-circle"></i> {{ message }}</div>
     {% endfor %}
-{% endif %}
+{% endif %}{{form}}
         <section class="hero">
 			{% for post in posts %}
+
          <div class="container">
           <div class="row">
 
@@ -68,8 +69,9 @@
 			   <a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="" width="40px"></a>
 			  </span>
 			  <div class="search">
-			   <input placeholder="Yorum yap..." type="text">
-			   <button><i class="fas fa-comment"></i></button>
+				  <form method="post">
+				  <input type="text" placeholder="Yorum yap" name="commentContent" maxlength="200" required="" id="id_commentContent">
+			   <button type="submit"><i class="fas fa-comment"></i></button></form>
 			  </div><!--/. Search -->
 			 </div><!--/ cardbox-like -->
 

@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8f80f132-2571-442e-8a35-0befeb3ee396" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Post/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/User/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jangostram/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jangostram/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Post/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Post/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/90864d69243fa98b0c410d3a0a09c5c3fe474e41_full.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Keylogger" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
