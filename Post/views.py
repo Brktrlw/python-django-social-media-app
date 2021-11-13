@@ -26,3 +26,4 @@ def createPost(request):
 
 def updatePost(request,postId):
     return
+
